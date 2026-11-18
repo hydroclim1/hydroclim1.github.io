@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hydro Clim - Plomberie & Climatisation</title>
+
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#ff6600">
+
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #0f172a; color: #fff; }
+        header { background: #ff6600; padding: 20px; text-align: center; }
+        .install-container { text-align: center; margin: 20px; }
+        #installBtn { background-color: #ff6600; color: white; border: none; padding: 12px 24px; font-size: 16px; border-radius: 10px; cursor: pointer; font-weight: bold; box-shadow: 0 4px 6px rgba(0,0,0,0.3); display: none; }
+        
+        .profile-section { background: #1e293b; margin: 15px; padding: 20px; border-radius: 15px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.4); border: 1px solid #334155; }
+        .profile-img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 3px solid #ff6600; margin-bottom: 15px; }
+        .profile-title { font-size: 20px; color: #ff6600; margin-bottom: 10px; font-weight: bold; }
+        .profile-desc { font-size: 15px; line-height: 1.6; color: #cbd5e1; }
+
+        .services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; padding: 15px; }
+        .service-card { background: #1e293b; padding: 20px; border-radius: 12px; text-align: center; border: 1px solid #334155; }
+        .service-card h3 { color: #ff6600; font-size: 16px; margin-top: 10px; }
+    </style>
+</head>
+<body id="accueil">
+
+    <header>
+        <h1>Hydro Clim</h1>
+        <p>Plomberie & Climatisation</p>
+    </header>
+
+    <div class="install-container">
+        <button id="installBtn">
+            📲 Installer l'Application HydroClim
+        </button>
+    </div>
+
+    <section class="profile-section">
+        <img src="1000198752.jpg" alt="Plombier Climaticien" class="profile-img">
+        <div class="profile-title">Qui suis-je ?</div>
+        <p class="profile-desc">
+            Marhbe bikom! Ena el plombier wel climaticien mte3kom. N9addemlikom 5demti naddifa w b soum mnasib 🛠️❄️
+        </p>
+    </section>
+
+    <div style="padding: 0 15px;">
+        <h3 style="color: #fff; border-bottom: 2px solid #ff6600; padding-bottom: 5px;">Safha Raiseya</h3>
+    </div>
+
+    <div class="services-grid">
+        <div class="service-card">
+            <span style="font-size: 28px;">🔧</span>
+            <h3>Plomberie</h3>
+        </div>
+        <div class="service-card">
+            <span style="font-size: 28px;">❄️</span>
+            <h3>Climatisation</h3>
+        </div>
+    </div>
+
+    <script>
+      let deferredPrompt;
+      const installBtn = document.getElementById('installBtn');
+
+      window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferredPrompt = e;
+        installBtn.style.display = 'inline-block';
+
+        installBtn.addEventListener('click', () => {
+          installBtn.style.display = 'none';
+          deferredPrompt.prompt();
+          deferredPrompt.userChoice.then((choiceResult) => {
+            if (choiceResult.outcome === 'accepted') {
+              console.log('User accepted the install prompt');
+            }
+            deferredPrompt = null;
+          });
+        });
+      });
+
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then((reg) => console.log('Service Worker registered', reg))
+            .catch((err) => console.log('Service Worker registration failed', err));
+        });
+      }
+    </script>
+</body>
+</html>
