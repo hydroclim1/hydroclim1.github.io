@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nos réalisations – HydroClim, plomberie et climatisation à Tunis</title>
+<meta name="description" content="Photos des interventions HydroClim : plomberie, installation de climatiseurs, recharge de gaz à Tunis, Le Bardo et Ariana.">
+<link rel="canonical" href="https://hydroclim1.github.io/realisations.html">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@700;800&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--night:#0b1d3a;--cyan:#19c3e6;--silver:#c9d3df;--orange:#ff7a1a;--bg:#f4f7fb;--ink:#0b1d3a;--card:#fff;--muted:#51627a;--line:#dbe3ee;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root{--bg:#081326;--ink:#eaf1fa;--card:#0f2243;--muted:#9fb1c9;--line:#22385d;color-scheme:dark}}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Cairo,system-ui,sans-serif}
+h1,h2,.brand{font-family:Sora,Cairo,system-ui,sans-serif;line-height:1.2;margin:0}
+.wrap{max-width:1040px;margin:0 auto;padding:0 18px}
+header{background:var(--night);color:#fff}
+.bar{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+.brand{color:#fff;text-decoration:none;font-weight:800;font-size:21px}.brand b{color:var(--cyan)}
+.back{color:var(--silver);text-decoration:none;font-size:14px}
+main{padding:34px 0 100px}
+h1{font-size:clamp(26px,5vw,38px);margin-bottom:8px}
+.sub{color:var(--muted);margin:0 0 24px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+.card{margin:0;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.card button{display:block;width:100%;padding:0;border:0;background:none;cursor:zoom-in}
+.card img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover}
+.card figcaption{padding:12px 14px;font-weight:700}
+.card figcaption small{display:block;color:var(--muted);font-weight:400}
+.btn{display:inline-block;margin-top:26px;background:var(--orange);color:#fff;text-decoration:none;font-weight:700;padding:13px 22px;border-radius:12px}
+.fab{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;gap:10px}
+.fab a{width:54px;height:54px;border-radius:50%;display:grid;place-items:center;text-decoration:none;font-size:26px;box-shadow:0 4px 14px rgba(0,0,0,.35)}
+.wa{background:#25d366}.ph{background:var(--orange)}
+#lb{position:fixed;inset:0;background:rgba(0,0,0,.9);display:none;align-items:center;justify-content:center;z-index:50;padding:16px}
+#lb.on{display:flex}#lb img{max-width:100%;max-height:100%;border-radius:10px}
+a:focus-visible,button:focus-visible{outline:3px solid var(--cyan);outline-offset:2px}
+</style></head><body>
+<header><div class="wrap bar"><a class="brand" href="index.html">Hydro<b>Clim</b></a><a class="back" href="index.html">← Retour au site</a></div></header>
+<main><div class="wrap">
+<h1>Nos réalisations</h1>
+<p class="sub">Quelques interventions récentes à Tunis, Le Bardo et Ariana. Touchez une photo pour l’agrandir.</p>
+<div class="grid">
+<figure class="card"><button type="button"><img src="real-tuyauterie.jpg" alt="Collecteur et tuyauterie multicouche installés" loading="lazy"></button><figcaption>Installation plomberie<small>Collecteur et tuyauterie multicouche</small></figcaption></figure>
+<figure class="card"><button type="button"><img src="real-passage-clim.jpg" alt="Passage de liaison frigorifique de climatiseur" loading="lazy"></button><figcaption>Installation climatiseur<small>Passage des liaisons et finition</small></figcaption></figure>
+<figure class="card"><button type="button"><img src="real-recharge-gaz.jpg" alt="Manomètre pour recharge de gaz de climatiseur" loading="lazy"></button><figcaption>Recharge de gaz<small>Contrôle de pression avec matériel professionnel</small></figcaption></figure>
+<figure class="card"><button type="button"><img src="real-flyer.jpg" alt="Affiche HydroClim installation, réparation et entretien de climatiseurs" loading="lazy"></button><figcaption>Climatisation<small>Installation, réparation, entretien</small></figcaption></figure>
+</div>
+<a class="btn" href="https://wa.me/21652180356">Demander une intervention sur WhatsApp</a>
+</div></main>
+<div class="fab"><a class="wa" href="https://wa.me/21652180356" aria-label="WhatsApp">💬</a><a class="ph" href="tel:+21652180356" aria-label="Appeler">📞</a></div>
+<div id="lb" role="dialog" aria-label="Photo agrandie"><img alt=""></div>
+<script>
+var lb=document.getElementById('lb'),li=lb.querySelector('img');
+document.querySelectorAll('.card button').forEach(function(b){b.addEventListener('click',function(){var i=b.querySelector('img');li.src=i.src;li.alt=i.alt;lb.classList.add('on')})});
+lb.addEventListener('click',function(){lb.classList.remove('on')});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')lb.classList.remove('on')});
+</script></body></html>
